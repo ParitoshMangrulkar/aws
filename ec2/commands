@@ -1,0 +1,10 @@
+Linux server
+=============
+ssh -i ERPKeyPair.pem ec2-user@10.0.44.246
+sudo adduser myappuser
+sudo mkdir -p ~myappuser/.ssh
+touch $HOME/.ssh/authorized_keys
+sudo sh -c "cat $HOME/.ssh/authorized_keys >> ~myappuser/.ssh/authorized_keys"
+sudo chown -R myappuser: ~myappuser/.ssh
+sudo chmod 700 ~myappuser/.ssh
+sudo sh -c "chmod 600 ~myappuser/.ssh/*"
