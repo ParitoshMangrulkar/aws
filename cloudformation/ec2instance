@@ -1,0 +1,24 @@
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+  "Description" : "Distribution Environment",
+  "Resources" : {
+    "WebServer": {
+      "Type": "AWS::EC2::Instance",  
+      "Properties": {
+        "Tags" : [
+            { "Key" : "Name", "Value" : { "Ref" : "AWS::StackName" } }
+        ],
+        "ImageId"            : "ami-05f5c28bb6992ab4b",
+        "InstanceType"       : "m1.small",
+        "KeyName"            : "ERPKeyPair320003817",
+        "NetworkInterfaces" : [{
+          "AssociatePublicIpAddress" : "false",
+          "DeviceIndex"              : "0",
+          "DeleteOnTermination"      : "true",
+          "SubnetId"                 : "subnet-be6878e7",
+          "GroupSet"                 : [ "sg-00b594dd2e4a73b8b" ]
+        }]
+      }
+    }
+  }
+}
