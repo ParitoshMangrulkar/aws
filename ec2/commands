@@ -8,3 +8,5 @@ sudo sh -c "cat $HOME/.ssh/authorized_keys >> ~myappuser/.ssh/authorized_keys"
 sudo chown -R myappuser: ~myappuser/.ssh
 sudo chmod 700 ~myappuser/.ssh
 sudo sh -c "chmod 600 ~myappuser/.ssh/*"
+
+sudo passwd myappuser  --setting password for the user
