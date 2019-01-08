@@ -1,0 +1,7 @@
+Java - AWS lambda:
+
+https://docs.aws.amazon.com/lambda/latest/dg/java-create-jar-pkg-maven-and-eclipse.html
+
+https://blog.symphonia.io/learning-lambda-part-3-c482c7753e69
+
+mvn install:install-file -Dfile=C:/Paritosh/ExternalEnterprise/java/ojdbc7.jar -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0 -Dpackaging=jar        
