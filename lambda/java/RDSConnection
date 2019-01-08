@@ -1,0 +1,50 @@
+package com.gea.RDSConnection;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import com.amazonaws.services.lambda.runtime.Context;
+import com.amazonaws.services.lambda.runtime.RequestHandler;
+
+
+
+
+public class RDSConnection implements RequestHandler<String, String>  {
+
+	 Statement statement;
+	 ResultSet resultSet;
+	 
+	 public String handleRequest(String input, Context context) {
+
+		  try {
+			  Class.forName("oracle.jdbc.driver.OracleDriver");
+			  
+    	  Connection con = DriverManager.getConnection("jdbc:oracle:thin:@db12345.com:1521:sid123","login" , "password" ); 
+			  
+		   context.getLogger().log("Test Started");
+		   String query = "select sysdate from dual";
+		   Statement statement = con.createStatement();
+		   resultSet = statement.executeQuery(query);
+
+		    if (resultSet.next()) {
+		    String output = "Hello, " + resultSet.getString("sysdate") + "!";
+
+		     context.getLogger()
+		      .log( "Console: Hello " + resultSet.getString("sysdate") + " !");
+		    return output;
+		   }
+		  } catch (SQLException e) {
+		   e.printStackTrace();
+		  } catch (ClassNotFoundException e) {
+		   e.printStackTrace();
+		  }		 
+		 
+		  
+		  return null;
+		 
+	 }
+	
+}
