@@ -8,4 +8,4 @@ https://awslambda27.blogspot.com/
 
 https://www.youtube.com/watch?v=zETF3Rh6AJA
 
-mvn install:install-file -Dfile=C:/Paritosh/ExternalEnterprise/java/ojdbc7.jar -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0 -Dpackaging=jar        
+mvn install:install-file -Dfile=C:/Paritosh/java/ojdbc7.jar -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=12.1.0 -Dpackaging=jar        
